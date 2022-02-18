@@ -35,8 +35,7 @@ public class EmployeeServiceImpTest implements EmployeeService{
     }
 
     @Override
-    public String deleteEmployee(int id) {
-        return "Employee No. : "+id+" deleted successfully.";
+    public void deleteEmployee(int id) {
     }
 
     @Override

@@ -28,8 +28,8 @@ public class EmployeeEndpoint {
        return employeeService.updateEmployee(employee);
     }
 
-    public String deleteEmployeeRequest(int id)
-    { return employeeService.deleteEmployee(id); }
+    public void deleteEmployeeRequest(int id)
+    {  employeeService.deleteEmployee(id); }
 
     public List<Employee> listAllEmployeeRequest(){
        return employeeService.listEmployee();

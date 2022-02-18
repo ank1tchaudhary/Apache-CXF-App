@@ -23,7 +23,7 @@ public interface EmployeeService {
     public Employee updateEmployee(Employee employee);
 
     @WebMethod
-    public String deleteEmployee(int id);
+    public void deleteEmployee(int id);
 
     @WebMethod
     public List<Employee> listEmployee();

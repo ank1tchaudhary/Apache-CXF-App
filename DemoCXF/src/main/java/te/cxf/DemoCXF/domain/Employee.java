@@ -17,7 +17,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-//@XmlRootElement(name = "employee")
 public class Employee implements Serializable {
 
     @Id
