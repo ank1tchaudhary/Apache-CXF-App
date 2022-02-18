@@ -3,8 +3,8 @@ package te.cxf.DemoCXF;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import te.cxf.DemoCXF.client.Operations;
-import te.cxf.DemoCXF.client.OperationsImplService;
+//import te.cxf.DemoCXF.client.Operations;
+//import te.cxf.DemoCXF.client.OperationsImplService;
 
 @SpringBootTest
 class DemoCxfApplicationTests {
