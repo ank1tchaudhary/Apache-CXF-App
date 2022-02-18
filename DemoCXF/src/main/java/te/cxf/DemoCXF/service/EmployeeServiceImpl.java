@@ -7,7 +7,7 @@ import te.cxf.DemoCXF.repo.EmployeeRepo;
 
 import java.util.List;
 
-@Service("empSOAPService")
+@Service("empService")
 public class EmployeeServiceImpl implements EmployeeService{
 
     @Autowired

@@ -19,7 +19,7 @@ import static org.mockito.Mockito.*;
 class EmployeeRestControllerTest {
 
     @Autowired
-    @Qualifier("empSOAPService")
+    @Qualifier("empService")
     private EmployeeService employeeService;
 
     @MockBean
