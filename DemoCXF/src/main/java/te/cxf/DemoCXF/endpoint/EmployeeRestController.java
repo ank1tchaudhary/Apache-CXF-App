@@ -37,8 +37,10 @@ public class EmployeeRestController {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteEmployeeRequest(@PathVariable int id)
-    { return employeeService.deleteEmployee(id); }
+    public void deleteEmployeeRequest(@PathVariable int id)
+    {
+         employeeService.deleteEmployee(id);
+    }
 
     @GetMapping
     public List<Employee> listAllEmployeeRequest(){
