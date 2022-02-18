@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Apache-CXF-App.iml" filepath="$PROJECT_DIR$/.idea/Apache-CXF-App.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ClientApp/ClientApp.iml" filepath="$PROJECT_DIR$/ClientApp/ClientApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/DemoCXF/DemoCXF.iml" filepath="$PROJECT_DIR$/DemoCXF/DemoCXF.iml" />
     </modules>
   </component>
