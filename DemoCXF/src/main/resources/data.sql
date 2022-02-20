@@ -1,2 +1,2 @@
-insert into employee (id,dept,name,salary) values (1,'Test1','Ankit',10000.0);
-insert into employee (id,dept,name,salary) values (2,'Test2','Rahul',20000.0);
+insert into employee (id,dept,name,salary,email,dob,phone) values (1,'Test1','Ankit',10000.0,'ankit@gmail.com',to_date('10/12/1995','dd/mm/yyyy'),3434343434);
+insert into employee (id,dept,name,salary,email,dob,phone) values (2,'Test2','Rahul',20000.0,'rahul@gmail.com',to_date('10/12/1995','dd/mm/yyyy'),6565656565);
