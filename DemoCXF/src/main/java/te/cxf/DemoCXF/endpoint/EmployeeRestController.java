@@ -8,12 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import te.cxf.DemoCXF.domain.Employee;
-import te.cxf.DemoCXF.repo.EmployeeRepo;
 import te.cxf.DemoCXF.service.EmployeeService;
 
+import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Api(value = "EmployeeServices")
 @RestController
@@ -39,11 +43,12 @@ public class EmployeeRestController {
     @ApiOperation(value = "Create Employee")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Created"),
+            @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 401, message = "not authorized!"),
             @ApiResponse(code = 403, message = "forbidden!!!"),
             @ApiResponse(code = 404, message = "not found!!!") })
     @PostMapping("/createEmployee")
-    public ResponseEntity<Employee> createEmployeeRequest(@RequestBody Employee employee){
+    public ResponseEntity<Employee> createEmployeeRequest(@Valid @RequestBody Employee employee){
         Employee emp = employeeService.createEmployee(employee);
         return ResponseEntity.status(HttpStatus.CREATED).body(emp);
     }
@@ -51,11 +56,12 @@ public class EmployeeRestController {
     @ApiOperation(value = "Update Employee")
     @ApiResponses(value = {
             @ApiResponse(code = 204, message = "No Content"),
+            @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 401, message = "not authorized!"),
             @ApiResponse(code = 403, message = "forbidden!!!"),
             @ApiResponse(code = 404, message = "not found!!!") })
     @PatchMapping("/updateEmployee")
-    public ResponseEntity updateEmployeeRequest(@RequestBody Employee employee){
+    public ResponseEntity updateEmployeeRequest(@Valid @RequestBody Employee employee){
         employeeService.updateEmployee(employee);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
     }
@@ -63,6 +69,7 @@ public class EmployeeRestController {
     @ApiOperation(value = "Delete Employee")
     @ApiResponses(value = {
             @ApiResponse(code = 204, message = "No Content"),
+            @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 401, message = "not authorized!"),
             @ApiResponse(code = 403, message = "forbidden!!!"),
             @ApiResponse(code = 404, message = "not found!!!") })
@@ -76,6 +83,7 @@ public class EmployeeRestController {
     @ApiOperation(value = "List Employee")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Suceess|OK"),
+            @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 401, message = "not authorized!"),
             @ApiResponse(code = 403, message = "forbidden!!!"),
             @ApiResponse(code = 404, message = "not found!!!") })
