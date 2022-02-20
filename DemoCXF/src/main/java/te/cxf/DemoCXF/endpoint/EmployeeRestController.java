@@ -30,7 +30,7 @@ public class EmployeeRestController {
             @ApiResponse(code = 401, message = "not authorized!"),
             @ApiResponse(code = 403, message = "forbidden!!!"),
             @ApiResponse(code = 404, message = "not found!!!") })
-    @GetMapping("/{id}")
+    @GetMapping("/getEmployeeById/{id}")
     public ResponseEntity<Employee> getEmployeeRequest(@PathVariable int id){
         Employee employee = employeeService.getEmployee(id);
         return ResponseEntity.status(HttpStatus.OK).body(employee);
@@ -38,12 +38,11 @@ public class EmployeeRestController {
 
     @ApiOperation(value = "Create Employee")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Suceess|OK"),
             @ApiResponse(code = 201, message = "Created"),
             @ApiResponse(code = 401, message = "not authorized!"),
             @ApiResponse(code = 403, message = "forbidden!!!"),
             @ApiResponse(code = 404, message = "not found!!!") })
-    @PostMapping
+    @PostMapping("/createEmployee")
     public ResponseEntity<Employee> createEmployeeRequest(@RequestBody Employee employee){
         Employee emp = employeeService.createEmployee(employee);
         return ResponseEntity.status(HttpStatus.CREATED).body(emp);
@@ -51,12 +50,11 @@ public class EmployeeRestController {
 
     @ApiOperation(value = "Update Employee")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Suceess|OK"),
             @ApiResponse(code = 204, message = "No Content"),
             @ApiResponse(code = 401, message = "not authorized!"),
             @ApiResponse(code = 403, message = "forbidden!!!"),
             @ApiResponse(code = 404, message = "not found!!!") })
-    @PatchMapping
+    @PatchMapping("/updateEmployee")
     public ResponseEntity updateEmployeeRequest(@RequestBody Employee employee){
         employeeService.updateEmployee(employee);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
@@ -64,12 +62,11 @@ public class EmployeeRestController {
 
     @ApiOperation(value = "Delete Employee")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Suceess|OK"),
             @ApiResponse(code = 204, message = "No Content"),
             @ApiResponse(code = 401, message = "not authorized!"),
             @ApiResponse(code = 403, message = "forbidden!!!"),
             @ApiResponse(code = 404, message = "not found!!!") })
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteEmployee/{id}")
     public ResponseEntity deleteEmployeeRequest(@PathVariable int id)
     {
          employeeService.deleteEmployee(id);
@@ -82,7 +79,7 @@ public class EmployeeRestController {
             @ApiResponse(code = 401, message = "not authorized!"),
             @ApiResponse(code = 403, message = "forbidden!!!"),
             @ApiResponse(code = 404, message = "not found!!!") })
-    @GetMapping
+    @GetMapping("/listEmployee")
     public ResponseEntity<List<Employee>> listAllEmployeeRequest(){
         List<Employee> employees = employeeService.listEmployee();
         return ResponseEntity.status(HttpStatus.OK).body(employees);
