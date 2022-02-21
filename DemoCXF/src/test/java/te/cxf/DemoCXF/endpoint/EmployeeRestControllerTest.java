@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.*;
 import org.springframework.test.web.servlet.MockMvc;
@@ -62,8 +63,8 @@ class EmployeeRestControllerTest {
     @Test
     @DisplayName("POST : /createEmployee")
     void testCreateEmployeeRequest() throws Exception {
-     Employee ankit= Employee.builder().name("Ankit").dept("Dept1").salary(10000).build();
-     Employee output= Employee.builder().id(1).name("Ankit").dept("Dept1").salary(10000).build();
+     Employee ankit= Employee.builder().name("Ankit").dept("Dept1").salary(10000).dob("10-10-2020").email("ankit@gmail.com").phone(3456789109L).build();
+     Employee output= Employee.builder().id(1).name("Ankit").dept("Dept1").salary(10000).dob("10-10-2020").email("ankit@gmail.com").phone(3456789109L).build();
 
      when(employeeService.createEmployee(ankit)).thenReturn(output);
 
@@ -82,7 +83,7 @@ class EmployeeRestControllerTest {
     @Test
     @DisplayName("PATCH : /updateEmployee")
     void testUpdateEmployeeRequest() throws Exception {
-        Employee ankit= Employee.builder().id(1).name("Ankit").dept("Dept1").salary(10000).build();
+        Employee ankit= Employee.builder().id(1).name("Ankit").dept("Dept1").salary(10000).dob("10-10-2020").email("ankit@gmail.com").phone(3456789109L).build();
 
         when(employeeService.updateEmployee(ankit)).thenReturn(ankit);
 

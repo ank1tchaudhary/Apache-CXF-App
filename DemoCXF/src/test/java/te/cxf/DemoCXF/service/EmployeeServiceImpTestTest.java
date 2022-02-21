@@ -1,21 +1,16 @@
 package te.cxf.DemoCXF.service;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import te.cxf.DemoCXF.domain.Employee;
 import te.cxf.DemoCXF.repo.EmployeeRepo;
-import te.cxf.DemoCXF.service.EmployeeService;
 
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
@@ -30,7 +25,7 @@ class EmployeeServiceImpTestTest {
 
     @Test
     void createEmployee() {
-        Employee aamir= Employee.builder().id(3).name("aamir").dept("Dept3").salary(20000).build();
+        Employee aamir= Employee.builder().id(3).name("aamir").dept("Dept3").salary(20000).dob("10-10-2020").email("ankit@gmail.com").phone(3456789109L).build();
 
         when(employeeRepo.save(aamir)).thenReturn(aamir);
 
@@ -39,10 +34,10 @@ class EmployeeServiceImpTestTest {
 
     @Test
     void getEmployee() {
-        Employee ankit= Employee.builder().id(1).name("Ankit").dept("Dept1").salary(10000).build();
-        Employee rahul= Employee.builder().id(2).name("Rahul").dept("Dept2").salary(20000).build();
-        Employee aamir= Employee.builder().id(3).name("aamir").dept("Dept3").salary(20000).build();
-        Employee anuj= Employee.builder().id(4).name("anuj").dept("Dept4").salary(10000).build();
+        Employee ankit= Employee.builder().id(1).name("Ankit").dept("Dept1").salary(10000).dob("10-10-2020").email("ankit@gmail.com").phone(3456789109L).build();
+        Employee rahul= Employee.builder().id(2).name("Rahul").dept("Dept2").salary(20000).dob("10-10-2020").email("ankit@gmail.com").phone(3456789109L).build();
+        Employee aamir= Employee.builder().id(3).name("aamir").dept("Dept3").salary(20000).dob("10-10-2020").email("ankit@gmail.com").phone(3456789109L).build();
+        Employee anuj= Employee.builder().id(4).name("anuj").dept("Dept4").salary(10000).dob("10-10-2020").email("ankit@gmail.com").phone(3456789109L).build();
 
         int empId= 4;
 
@@ -54,7 +49,7 @@ class EmployeeServiceImpTestTest {
 
     @Test
     void updateEmployee() {
-        Employee ankit= Employee.builder().id(1).name("Ankit").dept("Dept1").salary(10).build();
+        Employee ankit= Employee.builder().id(1).name("Ankit").dept("Dept1").salary(10).dob("10-10-2020").email("ankit@gmail.com").phone(3456789109L).build();
 
         when(employeeRepo.save(ankit)).thenReturn(ankit);
 
@@ -63,7 +58,7 @@ class EmployeeServiceImpTestTest {
 
     @Test
     void deleteEmployee() {
-        Employee ankit= Employee.builder().id(1).name("Ankit").dept("Dept1").salary(10000).build();
+        Employee ankit= Employee.builder().id(1).name("Ankit").dept("Dept1").salary(10000).dob("10-10-2020").email("ankit@gmail.com").phone(3456789109L).build();
 
         employeeRepo.delete(ankit);
 
@@ -72,10 +67,10 @@ class EmployeeServiceImpTestTest {
 
     @Test
     void listEmployee() {
-        Employee ankit= Employee.builder().id(1).name("Ankit").dept("Dept1").salary(10000).build();
-        Employee rahul= Employee.builder().id(2).name("Rahul").dept("Dept2").salary(20000).build();
-        Employee aamir= Employee.builder().id(3).name("aamir").dept("Dept3").salary(20000).build();
-        Employee anuj= Employee.builder().id(4).name("anuj").dept("Dept4").salary(10000).build();
+        Employee ankit= Employee.builder().id(1).name("Ankit").dept("Dept1").salary(10000).dob("10-10-2020").email("ankit@gmail.com").phone(3456789109L).build();
+        Employee rahul= Employee.builder().id(2).name("Rahul").dept("Dept2").salary(20000).dob("10-10-2020").email("rahul@gmail.com").phone(3456789109L).build();
+        Employee aamir= Employee.builder().id(3).name("aamir").dept("Dept3").salary(20000).dob("10-10-2020").email("aamir@gmail.com").phone(3456789109L).build();
+        Employee anuj= Employee.builder().id(4).name("anuj").dept("Dept4").salary(10000).dob("10-10-2020").email("anuj@gmail.com").phone(3456789109L).build();
 
         when(employeeRepo.findAll())
                 .thenReturn(Arrays.asList(ankit,rahul,aamir,anuj));
