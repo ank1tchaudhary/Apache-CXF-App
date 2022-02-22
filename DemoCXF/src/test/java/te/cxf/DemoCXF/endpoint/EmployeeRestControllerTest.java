@@ -42,14 +42,11 @@ class EmployeeRestControllerTest {
      mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
     }
 
-    @AfterEach
-    void tearDown() {
-    }
 
     @Test
     @DisplayName("GET : /getEmployeeById")
     void testGetEmployeeRequest() throws Exception {
-        Employee output= Employee.builder().id(1).name("Ankit").dept("Dept1").salary(10000).build();
+        Employee output= Employee.builder().id(1).name("Ankit").dept("Dept1").salary(10000).dob("10-10-2020").email("ankit@gmail.com").phone(3456789109L).build();
         when(employeeService.getEmployee(1)).thenReturn(output);
         mockMvc.perform(get("/getEmployeeById/"+1)
                 .contentType(MediaType.APPLICATION_JSON))
@@ -113,10 +110,10 @@ class EmployeeRestControllerTest {
     @Test
     @DisplayName("GET : /listEmployee")
     void testListAllEmployeeRequest() throws Exception {
-        Employee ankit= Employee.builder().id(1).name("Ankit").dept("Dept1").salary(10000).build();
-        Employee rahul= Employee.builder().id(2).name("Rahul").dept("Dept2").salary(20000).build();
-        Employee aamir= Employee.builder().id(3).name("aamir").dept("Dept3").salary(20000).build();
-        Employee anuj= Employee.builder().id(4).name("anuj").dept("Dept4").salary(10000).build();
+        Employee ankit= Employee.builder().id(1).name("Ankit").dept("Dept1").salary(10000).dob("10-10-2020").email("ankit@gmail.com").phone(3456789109L).build();
+        Employee rahul= Employee.builder().id(2).name("Rahul").dept("Dept2").salary(20000).dob("10-10-2020").email("ankit@gmail.com").phone(3456789109L).build();
+        Employee aamir= Employee.builder().id(3).name("aamir").dept("Dept3").salary(20000).dob("10-10-2020").email("ankit@gmail.com").phone(3456789109L).build();
+        Employee anuj= Employee.builder().id(4).name("anuj").dept("Dept4").salary(10000).dob("10-10-2020").email("ankit@gmail.com").phone(3456789109L).build();
 
         when(employeeService.listEmployee()).thenReturn(Arrays.asList(ankit,rahul,aamir,anuj));
 
